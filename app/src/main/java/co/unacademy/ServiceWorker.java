@@ -31,7 +31,6 @@ public class ServiceWorker<T> {
     private final AtomicBoolean mCancelled = new AtomicBoolean();
     private final AtomicBoolean mTaskInvoked = new AtomicBoolean();
     ServiceWorker(String serviceWorker) {
-        Log.d("task", "ServiceWorker");
         this.serviceWorker = serviceWorker;
         mTaskQueue = new LinkedBlockingQueue<>();
         mRunningTaskList = new ArrayList<>();
@@ -83,10 +82,9 @@ public class ServiceWorker<T> {
 
         @Override
         public Thread newThread(@NonNull Runnable runnable) {
-            Log.d("task", "BackgroundThreadFactory:: newThread");
             Thread thread = new Thread(runnable);
             int sTag = 1;
-            thread.setName("CustomThread" + sTag);
+            thread.setName("TaskThread" + sTag);
             thread.setPriority(Process.THREAD_PRIORITY_BACKGROUND);
 
             // A exception handler is created to log the exception from threads
