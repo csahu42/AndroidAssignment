@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidAssignment</string>
+    <string name="fetch_image_1_and_set">fetch image 1 And Set</string>
+    <string name="fetch_image_2_and_set">fetch image 2 And Set</string>
+</resources>
